@@ -8,7 +8,7 @@ module Doraemon
 
   def doraemon env
     path = env["PATH_INFO"]
-    method = env["REQUEST_METHOD"] == "GET" ? :get : :post
+    method = env["REQUEST_METHOD"].downcase.to_sym
     
     proc = get_proc path
     p proc
